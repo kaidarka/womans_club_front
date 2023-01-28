@@ -1,15 +1,13 @@
 import {Dispatch} from "react";
 import {FetchEventsAction, EventsActionTypes} from "../../types/entites/events";
-import axios from "axios";
-import {api} from "../../utils/constants";
-import warning from "react-redux/es/utils/warning";
+import axios from "../../utils/axios";
+
 
 export const fetchEvents = () => {
     return async (dispatch: Dispatch<FetchEventsAction>) => {
+        dispatch({type: EventsActionTypes.FETCH_EVENTS_START, payload: []})
         try {
-            // TODO create axios file with configuration
-            const response = {data: [{_id: 'asd', text: 'fadsgdas'}]}
-            // await axios.get(`${api}/events`)
+            const response = await axios.get('/events');
             dispatch({type: EventsActionTypes.FETCH_EVENTS_SUCCESS, payload: response.data})
         } catch (e) {
             dispatch({

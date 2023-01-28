@@ -15,7 +15,7 @@ export interface IEvent {
 }
 
 export interface EventsState {
-    events: IEvent[];
+    data: IEvent[];
     error: string;
     isLoading: boolean;
 }
