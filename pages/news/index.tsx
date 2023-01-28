@@ -1,10 +1,11 @@
 import React from 'react';
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../../layouts/MainLayout";
 
-const Index  = () => {
+const Index = () => {
+
     return (
         <MainLayout>
-            Главная страница
+            Новости
         </MainLayout>
     );
 };
