@@ -5,6 +5,10 @@ import MainPage from "../components/pages/mainPage";
 import {NewsState} from "../types/entites/news";
 import {EventsState} from "../types/entites/events";
 import {useMountEffect} from "../hooks/useMountEffect";
+import {fetchNews as fetchNewsAction} from "../store/actionCreators/news";
+import {fetchEvents as fetchEventsAction} from "../store/actionCreators/events";
+import {makeSelectNews} from "../store/selectors/news";
+import {makeSelectEvents} from "../store/selectors/events";
 
 interface IProps {
     fetchNews: (params: object) => void;
@@ -29,9 +33,13 @@ const Index  = (props: IProps) => {
 
 
 const mapDispatchToProps = {
+    fetchNews: fetchNewsAction,
+    fetchEvents: fetchEventsAction,
 };
 
 const mapStateToProps = createStructuredSelector({
+    news: makeSelectNews(),
+    events: makeSelectEvents(),
 });
 
 export default  connect(mapStateToProps, mapDispatchToProps)(Index);
