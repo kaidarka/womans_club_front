@@ -2,7 +2,7 @@ import {FetchNewsAction, NewsActionTypes, NewsState} from "../../types/entites/n
 
 
 const initialState: NewsState = {
-    news: [],
+    data: [],
     error: '',
     isLoading: false,
 }
@@ -10,9 +10,9 @@ const initialState: NewsState = {
 export const newsReducer = (state = initialState, action:FetchNewsAction) => {
     switch (action.type) {
         case NewsActionTypes.FETCH_NEWS_START:
-            return { ...state, events: [], isLoading: true }
+            return { ...state, data: [], isLoading: true }
         case NewsActionTypes.FETCH_NEWS_SUCCESS:
-            return { ...state, events: action.payload, isLoading: false }
+            return { ...state, data: action.payload, isLoading: false }
         case NewsActionTypes.FETCH_NEWS_ERROR:
             return { ...state, error: action.payload, isLoading: false }
         default:

@@ -7,8 +7,8 @@ export const fetchEvents = () => {
     return async (dispatch: Dispatch<FetchEventsAction>) => {
         dispatch({type: EventsActionTypes.FETCH_EVENTS_START, payload: []})
         try {
-            const response = await axios.get('/events');
-            dispatch({type: EventsActionTypes.FETCH_EVENTS_SUCCESS, payload: response.data})
+            const { data } = await axios.get('/events');
+            dispatch({type: EventsActionTypes.FETCH_EVENTS_SUCCESS, payload: data})
         } catch (e) {
             dispatch({
                 type: EventsActionTypes.FETCH_EVENTS_ERROR,

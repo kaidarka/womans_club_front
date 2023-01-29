@@ -1,3 +1,4 @@
 import {useEffect} from "react";
 
-export const useMountEffect = (fun: () => void) => useEffect(fun, [])
+// eslint-disable-next-line react-hooks/exhaustive-deps
+export const useMountEffect = (func: () => void) => useEffect(func, [])
