@@ -5,7 +5,7 @@ export interface INews {
 }
 
 export interface NewsState {
-    news: INews[];
+    data: INews[];
     error: string;
     isLoading: boolean;
 }

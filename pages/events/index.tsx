@@ -1,7 +1,6 @@
-import React, {ComponentType} from 'react';
-import MainLayout from "../../layouts/MainLayout";
+import React from 'react';
 import {fetchEvents as fetchEventsAction} from "../../store/actionCreators/events";
-import {connect, Matching} from "react-redux";
+import {connect} from "react-redux";
 import {EventsState} from "../../types/entites/events";
 import {createStructuredSelector} from "reselect";
 import {makeSelectEvents} from "../../store/selectors/events";
@@ -13,7 +12,7 @@ interface IProps {
     events: EventsState
 }
 
-const Index: ComponentType<Matching<{ events: EventsState } & { fetchEvents: () => Promise<void>; }, IProps>> = (props: IProps) => {
+const Index = (props: IProps) => {
     const {fetchEvents, events} = props;
     console.log(events)
     useMountEffect(() => {
@@ -22,7 +21,6 @@ const Index: ComponentType<Matching<{ events: EventsState } & { fetchEvents: () 
 
 
     return (
-        <MainLayout>
             <>
             События
             {!isEmpty(events.data) && events.data.map((item) => {
@@ -32,7 +30,6 @@ const Index: ComponentType<Matching<{ events: EventsState } & { fetchEvents: () 
                 )
             })}
             </>
-        </MainLayout>
     );
 };
 
