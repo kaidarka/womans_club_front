@@ -16,6 +16,18 @@
 }
 
 .last_news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    text-align: center;
+  }
 }
 
